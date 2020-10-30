@@ -1,0 +1,10 @@
+query HeroVideo{
+  heroVideo{
+    BackgroundVideo{
+      url
+    },
+    BackgroundImage{
+      formats
+    }
+  }
+}

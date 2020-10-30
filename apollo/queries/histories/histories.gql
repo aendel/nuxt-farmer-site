@@ -1,0 +1,11 @@
+query Histories{
+    histories{
+        id,
+        title,
+        description,
+        date,
+        img{
+            formats
+        }
+    }
+}
