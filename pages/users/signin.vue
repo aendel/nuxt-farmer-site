@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid class="d-flex align-center justify-center">
     <v-row align="center" justify="center">
       <v-col cols="6">
         <v-card>
@@ -7,19 +7,40 @@
             <v-form lazy-validation>
               <p>Accedi</p>
 
-              <v-text-field v-model="email" label="E-mail" required outlined clearable type="email"></v-text-field>
+              <v-text-field
+                v-model="email"
+                label="E-mail"
+                required
+                outlined
+                clearable
+                type="email"
+              ></v-text-field>
 
-              <v-text-field v-model="password" label="Password" required outlined clearable type="password"></v-text-field>
+              <v-text-field
+                v-model="password"
+                label="Password"
+                required
+                outlined
+                clearable
+                type="password"
+              ></v-text-field>
             </v-form>
           </v-card-text>
-          <v-divider class="mt-8"></v-divider>
+          <v-divider class="mt-6"></v-divider>
           <v-card-actions>
-            <v-btn color="success" text :disabled="isLoading" @click.stop.prevent="handleSubmit">Accedi</v-btn>
+            <v-btn
+              color="success"
+              text
+              :disabled="isLoading"
+              @click.stop.prevent="handleSubmit"
+              >Accedi</v-btn
+            >
           </v-card-actions>
         </v-card>
         <v-card class="mt-4">
           <v-card-text>
-            Non hai un account? <nuxt-link :to="{ name: 'users-register'}">Registrati</nuxt-link>
+            Non hai un account?
+            <nuxt-link :to="{ name: 'users-register' }">Registrati</nuxt-link>
           </v-card-text>
         </v-card>
       </v-col>
@@ -36,22 +57,19 @@ export default {
     return {
       email: '',
       password: '',
-      loading: false
+      loading: false,
     }
   },
-  computed:{
-    isLoading(){
+  computed: {
+    isLoading() {
       return this.$nuxt.$loading?.loading
-    }
+    },
   },
   methods: {
     async handleSubmit() {
       try {
         this.$nuxt.$loading.start()
-        const response = await strapi.login(
-          this.email,
-          this.password
-        )
+        const response = await strapi.login(this.email, this.password)
         this.$nuxt.$loading.finish()
         this.setUser(response.user)
         this.$router.go(-1)
@@ -61,8 +79,8 @@ export default {
       }
     },
     ...mapMutations({
-      setUser: 'auth/setUser'
-    })
-  }
+      setUser: 'auth/setUser',
+    }),
+  },
 }
 </script>

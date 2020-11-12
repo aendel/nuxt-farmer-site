@@ -1,8 +1,8 @@
 <template>
-  <v-container fluid class="pa-0 ma-0">
+  <v-container fluid>
       <VideoHero :video="heroVideo"/>
-      <div :style="`height:${windowHeightSize}px`"></div>
-      <v-row>
+      <!-- <div :style="`height:${windowHeightSize}px`"></div> -->
+      <v-row no-gutters>
         <v-col>
           <carousel :height="windowHeightSize" :gallery="carouselGallery" />
         </v-col>
