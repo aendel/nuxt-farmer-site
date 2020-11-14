@@ -1,7 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-    mode: 'universal',
     /*
      ** Headers of the page
      */
@@ -34,7 +33,7 @@ export default {
     /*
      ** Nuxt.js dev-modules
      */
-    buildModules: ['@nuxtjs/pwa', '@nuxtjs/vuetify'],
+    buildModules: ['@nuxtjs/pwa', '@nuxtjs/vuetify', '@nuxtjs/tailwindcss'],
     /*
      ** Nuxt.js modules
      */
